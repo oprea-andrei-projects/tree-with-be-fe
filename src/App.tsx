@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React ,{useEffect, useState}from 'react';
 import './App.css';
+import { TheCard } from './Components/Home/TheCard';
+import { Node } from './Components/Models/Node';
+import Home from './Components/Home/Home';
+import Api from './services/Api'
+import TreeNode from './Components/TreeStructure/TreeNode';
 
 function App() {
+
+
+  let [nodes, setNodes]= useState<Node[]>([]);
+
+
+  let api = new Api();
+
+  useEffect(()=>{
+
+    getTheNodes();
+
+  },[]);
+
+  let getTheNodes = async(): Promise<void> => {
+
+    let theNodes = await api.getAllNodes();
+  
+    setNodes(theNodes);
+
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <TreeNode node={nodes[0]} />
+      
     </div>
   );
 }
