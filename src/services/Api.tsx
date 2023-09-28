@@ -30,6 +30,9 @@ export default class Api{
 
         let data = await this.api<null,Node[]>("/getAllNodes","GET",null,"");
         let nodes = await data.json();
+        console.log("-------------------------");
+        console.log(nodes);
+        console.log("-------------------------");
         return nodes;
         
     }

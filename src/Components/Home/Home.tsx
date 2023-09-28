@@ -13,8 +13,6 @@ interface HomePageProps{
 const Home: React.FC<HomePageProps>=({nodes})=>{
  
 
-
-      
     return(
 
         <>

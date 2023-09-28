@@ -3,39 +3,45 @@ import './App.css';
 import { TheCard } from './Components/Home/TheCard';
 import { Node } from './Components/Models/Node';
 import Home from './Components/Home/Home';
-import Api from './services/Api'
-import TreeNode from './Components/TreeStructure/TreeNode';
+import Api from './services/Api';
+import { Tree } from 'primereact/tree';
+import ControlledDemo from './Components/Exemplu/NewComp';
+import NewComp from './Components/Exemplu/NewComp';
 
 function App() {
 
 
-  let [nodes, setNodes]= useState<Node[]>([]);
+  // let [nodes, setNodes]= useState<Node[]>([]);
 
 
-  let api = new Api();
+  // let api = new Api();
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    getTheNodes();
+  //   getTheNodes();
 
-  },[]);
+  // },[]);
 
-  let getTheNodes = async(): Promise<void> => {
+  // let getTheNodes = async(): Promise<void> => {
 
-    let theNodes = await api.getAllNodes();
+  //   let theNodes = await api.getAllNodes();
   
-    setNodes(theNodes);
+  //   setNodes(theNodes);
 
-  }
+  // }
 
 
+
+  
 
   return (
-    <div className="App">
 
-      <TreeNode node={nodes[0]} />
+ 
+
+   
+    <NewComp />
       
-    </div>
+    
   );
 }
 
